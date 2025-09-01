@@ -1,0 +1,6 @@
+.schoolForm {
+    display: flex;
+    margin: 50px 0;
+    flex-direction: row;
+   
+}
