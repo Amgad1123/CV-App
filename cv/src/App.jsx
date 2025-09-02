@@ -1,17 +1,30 @@
 //import { useState } from 'react'
 import './App.css' 
+import  {useState} from 'react';
 import GeneralInfo from './components/general'
+import Display from  './components/preview'
 import SchoolInfo from './components/schooling'
 import Experience from './components/Experience'
 function App() {
-
-
-  return (
+    const [name, setName] = useState('Name');
+    const [email, setEmail] = useState('');
+    const [number, setNumber] = useState();  
+  return ( 
     <>
-    <h1>Resume</h1>
-      <GeneralInfo />
-      <SchoolInfo />
-      <Experience />
+      <div class = "leftSection">
+        <header class = "leftHeader">Resume Builder</header>
+        <GeneralInfo
+        name = {name}
+        setName = {setName}
+        email =  {email}
+        setEmail = {setEmail}
+        number= {number}
+        setNumber= {setNumber}
+         />
+      </div>
+      <Display 
+      name = {name}
+      />
     </>
     
   )
