@@ -7,9 +7,11 @@ import SchoolInfo from './components/schooling'
 import Experience from './components/Experience'
 function App() {
     const [name, setName] = useState('Name');
-    const [email, setEmail] = useState('');
-    const [number, setNumber] = useState();  
-  return ( 
+    const [email, setEmail] = useState('Email');
+    const [number, setNumber] = useState('Number');  
+    const [schoolName, setSchoolName] = useState('');
+    const [studyName, setStudyName] = useState('');
+    return ( 
     <>
       <div class = "leftSection">
         <header class = "leftHeader">Resume Builder</header>
@@ -21,10 +23,19 @@ function App() {
         number= {number}
         setNumber= {setNumber}
          />
+        <SchoolInfo 
+        schoolName={schoolName}  
+        setSchoolName={setSchoolName} 
+        studyName={studyName}
+        setStudyName={setStudyName}
+                />
       </div>
       <Display 
       name = {name}
+      email = {email}
+      number = {number}
       />
+
     </>
     
   )

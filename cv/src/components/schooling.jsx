@@ -1,33 +1,31 @@
-import {useState} from 'react'
 import "../styles/schooling.css"
-export default function SchoolInfo () {
-    const [schoolName, setSchoolName] = useState('');
-    const [studyName, setStudyName] = useState('');
+export default function SchoolInfo ({schoolName, setSchoolName, studyName, setStudyName}) {
     return ( 
-        <>
-            <h2 class = "heading">School Experience</h2>
+        <div class = "education">
+            <h1 class = "heading">Education</h1>
             <form class ="schoolForm" onSubmit= {(e) => {
             e.preventDefault();
 
         }}>
-            <div>
-                <label htmlFor="school">School Name: </label>
+            <div class = "input-col"> 
+                <label htmlFor="school">School/University*</label>
                 <input value = {schoolName} type="text" id = "school" onChange = {e => setSchoolName(e.target.value)}/>
             </div>
-            <div>
+            <div class = "input-col"> 
                 <label htmlFor="studyTitle">Study Title:</label>
                 <input type="text" id= "studyTitle" value={studyName} onChange = {e => setStudyName(e.target.value)}/>
             </div>
-            <div>
-                <label htmlFor="startDate">Start Date: </label>
-                <input type="date" id="startDate"/>
+            <div class = "input-row-dates">
+                <div className="input-col">
+                    <label htmlFor="startDate">Start Date: </label>
+                    <input type="date" id="startDate"/>
+                </div>
+                <div className="input-col">
+                    <label htmlFor="endDate">End Date: </label>
+                    <input type="date" id="endDate"/>
+                </div>
             </div>
-            <div>
-                <label htmlFor="endDate">End Date: </label>
-                <input type="date" id="endDate"/>
-            </div>
-        </form>
-
-        </>
+            </form>
+        </div>
     )
 }
