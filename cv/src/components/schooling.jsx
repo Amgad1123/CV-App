@@ -1,5 +1,12 @@
+import {useState} from 'react'
 import "../styles/schooling.css"
+
 export default function SchoolInfo ({schoolName, setSchoolName, studyName, setStudyName}) {
+    const [showBox, setShowBox] = useState(false)
+    const handleClick = () => {
+        setShowBox(!showBox);
+    }
+
     return ( 
         <div class = "education">
             <h1 class = "heading">Education</h1>
@@ -7,8 +14,12 @@ export default function SchoolInfo ({schoolName, setSchoolName, studyName, setSt
             e.preventDefault();
 
         }}>
-                <button></button>
-                <div className="school-input">
+                <button class ="addEducation" onClick={handleClick} 
+                style = {{backgroundColor: showBox ? "red" : "#4a646c"}}>{showBox ? "Cancel" : "Add Education"}</button>
+            
+                <div className="school-input" 
+                style = {{display: showBox ? "block" : "none"}}
+                >
                     <div class = "input-col"> 
                         <label htmlFor="school">School/University*</label>
                         <input value = {schoolName} type="text" id = "school" onChange = {e => setSchoolName(e.target.value)}/>
@@ -27,12 +38,13 @@ export default function SchoolInfo ({schoolName, setSchoolName, studyName, setSt
                             <input type="date" id="endDate"/>
                         </div>
                     </div>
-
+                    <div className="button-row">
+                        <button className="save">Save</button>
+                        <button class="cancel">Cancel</button>
+                    </div>
                 </div>
-                <div className="button-row">
-                    <button className="save">Save</button>
-                    <button class="cancel">Cancel</button>
-                </div>
+                
+                
             </form>       
         </div>
     )
