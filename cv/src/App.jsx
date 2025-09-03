@@ -11,6 +11,8 @@ function App() {
     const [number, setNumber] = useState('Number');  
     const [schoolName, setSchoolName] = useState('');
     const [studyName, setStudyName] = useState('');
+    const [save, setSave] = useState(false);
+    const [savedItems, setSavedItems] = useState([])
     return ( 
     <>
       <div class = "leftSection">
@@ -28,12 +30,19 @@ function App() {
         setSchoolName={setSchoolName} 
         studyName={studyName}
         setStudyName={setStudyName}
+        save = {save}
+        setSave = {setSave}
+        savedItems = {savedItems}
+        setSavedItems = {setSavedItems}
                 />
       </div>
       <Display 
       name = {name}
       email = {email}
       number = {number}
+      schoolName = {schoolName}
+      studyName = {studyName}
+      save = {save}
       />
 
     </>

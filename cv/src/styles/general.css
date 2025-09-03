@@ -1,5 +1,6 @@
 .personalInfo {
     display: flex;
+    background-color: white;
     border-radius: 8px;
     border: 2px solid whitesmoke;
     height: 60vh;
@@ -8,6 +9,7 @@
     top: 5vh;
     left: 3vw;
     flex-direction: column;
+    box-shadow: .5px 1px 1px .5px white;
 }
 .title {
     border-bottom: 2px solid whitesmoke;
