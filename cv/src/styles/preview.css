@@ -7,6 +7,40 @@
 
 .line {
     margin-left: 2vw;
-    border: 1.5px solid whitesmoke;
-    width: 29vw;
+    border: 2px solid whitesmoke;
+    width: 30vw;
+} 
+
+.educationPreview {
+    display: flex;
+    align-self: left;
+    margin-left: 5vw;
+    border: none;
+    border-bottom: 1.5px solid whitesmoke;
 }
+
+.schoolDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5vw;
+    margin-bottom: 0;
+    padding: 0;
+} 
+
+.dates {
+    margin-right: 5vw;
+} 
+
+.subSchool {
+    margin-top: -7px;
+    font-size: 16px;
+}
+
+.education-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+} 

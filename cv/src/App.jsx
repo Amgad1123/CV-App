@@ -6,13 +6,14 @@ import Display from  './components/preview'
 import SchoolInfo from './components/schooling'
 import Experience from './components/Experience'
 function App() {
-    const [name, setName] = useState('Name');
-    const [email, setEmail] = useState('Email');
-    const [number, setNumber] = useState('Number');  
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [number, setNumber] = useState('');  
     const [schoolName, setSchoolName] = useState('');
     const [studyName, setStudyName] = useState('');
     const [save, setSave] = useState(false);
     const [savedItems, setSavedItems] = useState([])
+    //const [eduDate, set]
     return ( 
     <>
       <div class = "leftSection">
@@ -43,6 +44,7 @@ function App() {
       schoolName = {schoolName}
       studyName = {studyName}
       save = {save}
+      savedItems = {savedItems}
       />
 
     </>
