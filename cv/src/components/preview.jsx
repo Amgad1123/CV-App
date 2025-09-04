@@ -1,6 +1,16 @@
 
 import "../styles/preview.css"
-export default function display ({name, email,number, studyName, schoolName, savedItems}) {
+export default function display ({
+  name, 
+  email,
+  number,
+  savedItems,
+  eduStartDate,
+  eduEndDate
+}) {
+  const format = {month: 'short', day: '2-digit', year: "numeric"};
+  const formttedStartDate = new Date(eduStartDate).toLocaleDateString('en-US', format)
+  const formattedEndDate = new Date(eduEndDate).toLocaleDateString('en-US', format)
     return ( 
         <div class = "rightSection">
           <h1>{name}</h1>
@@ -11,8 +21,8 @@ export default function display ({name, email,number, studyName, schoolName, sav
           </div>
 
         <div className="line"></div>
-        <p>Add Education Experience and more!</p>
         <h2 className="educationPreview">Education</h2>
+        <div className="headerLine"></div>
         {savedItems.map((item, index) => (
         <div key = {index} className="eduCard">
         <div className="schoolDiv">
@@ -21,7 +31,7 @@ export default function display ({name, email,number, studyName, schoolName, sav
             <p className="subSchool">{item.schoolName}</p>
           </div>
           
-          <p className="dates">Sep 2025 - Sep 2025</p>
+          <p className="dates">{formttedStartDate} - {formattedEndDate}</p>
         </div>
         
       </div>

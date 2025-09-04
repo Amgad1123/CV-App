@@ -12,7 +12,9 @@ function App() {
     const [schoolName, setSchoolName] = useState('');
     const [studyName, setStudyName] = useState('');
     const [save, setSave] = useState(false);
-    const [savedItems, setSavedItems] = useState([])
+    const [savedItems, setSavedItems] = useState([]);
+    const [eduStartDate, setEduStartDate] = useState ('');
+    const [eduEndDate, setEduEndDate] = useState ('Present');
     //const [eduDate, set]
     return ( 
     <>
@@ -35,16 +37,20 @@ function App() {
         setSave = {setSave}
         savedItems = {savedItems}
         setSavedItems = {setSavedItems}
+        eduStartDate = {eduStartDate}
+        setEduStartDate = {setEduStartDate}
+        eduEndDate = {eduEndDate}
+        setEduEndDate = {setEduEndDate}
                 />
       </div>
       <Display 
       name = {name}
       email = {email}
       number = {number}
-      schoolName = {schoolName}
-      studyName = {studyName}
       save = {save}
       savedItems = {savedItems}
+      eduStartDate = {eduStartDate}
+      eduEndDate = {eduEndDate}
       />
 
     </>

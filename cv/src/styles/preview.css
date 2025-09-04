@@ -6,17 +6,22 @@
 }
 
 .line {
-    margin-left: 2vw;
+    margin-left: 4vw;
     border: 2px solid whitesmoke;
-    width: 30vw;
+    width: 31vw;
 } 
+.headerLine {
+    margin-left: 4vw;
+    border: 1.5px solid whitesmoke;
+    width: 31vw;
+    margin-top: -10px;
+}
 
 .educationPreview {
     display: flex;
     align-self: left;
     margin-left: 5vw;
     border: none;
-    border-bottom: 1.5px solid whitesmoke;
 }
 
 .schoolDiv {

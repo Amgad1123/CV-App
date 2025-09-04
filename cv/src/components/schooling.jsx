@@ -10,6 +10,10 @@ export default function SchoolInfo({
   setSave,
   savedItems,
   setSavedItems,
+  eduStartDate,
+  setEduStartDate,
+  eduEndDate, 
+  setEduEndDate
 }) {
   const [showBox, setShowBox] = useState(false);
 
@@ -23,6 +27,7 @@ export default function SchoolInfo({
     setShowBox(false);
   };
 
+  
   return (
     <div className="education">
       <h1 className="heading">Education</h1>
@@ -73,11 +78,11 @@ export default function SchoolInfo({
           <div className="input-row-dates">
             <div className="input-col">
               <label htmlFor="startDate">Start Date:</label>
-              <input type="date" id="startDate" />
+              <input type="date" id="startDate"  onChange={(e) => setEduStartDate(e.target.value)}/>
             </div>
             <div className="input-col">
               <label htmlFor="endDate">End Date:</label>
-              <input type="date" id="endDate"/>
+              <input type="date" id="endDate" onChange={(e) => setEduEndDate(e.target.value)}/>
             </div>
           </div>
 
