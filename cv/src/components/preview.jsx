@@ -4,13 +4,20 @@ export default function display ({
   name, 
   email,
   number,
+  save,
   savedItems,
   eduStartDate,
-  eduEndDate
+  eduEndDate,
+  location
 }) {
-  const format = {month: 'short', day: '2-digit', year: "numeric"};
-  const formttedStartDate = new Date(eduStartDate).toLocaleDateString('en-US', format)
-  const formattedEndDate = new Date(eduEndDate).toLocaleDateString('en-US', format)
+  let formttedStartDate = '';
+  let formattedEndDate = 'Present';
+  if (eduStartDate !== '') {
+    const format = {month: 'short', day: '2-digit', year: "numeric"};
+   formttedStartDate = new Date(eduStartDate).toLocaleDateString('en-US', format)
+   formattedEndDate = new Date(eduEndDate).toLocaleDateString('en-US', format)
+  }
+  
     return ( 
         <div class = "rightSection">
           <h1>{name}</h1>
@@ -21,18 +28,22 @@ export default function display ({
           </div>
 
         <div className="line"></div>
-        <h2 className="educationPreview">Education</h2>
-        <div className="headerLine"></div>
+        {save && (
+          <>
+            <h2 className="educationPreview">Education</h2>
+            <div className="headerLine"></div>
+            </>)}
+        
         {savedItems.map((item, index) => (
         <div key = {index} className="eduCard">
-        <div className="schoolDiv">
           <div className="education-wrapper">
-            <p><strong>{item.studyName}</strong></p>
-            <p className="subSchool">{item.schoolName}</p>
+            <p className="degree"><strong>{item.studyName}</strong></p>
+            <p className="dates">{formttedStartDate} - {formattedEndDate}</p>
           </div>
-          
-          <p className="dates">{formttedStartDate} - {formattedEndDate}</p>
-        </div>
+            <div className="education-wrapper2">
+              <p className="subSchool">{item.schoolName}</p>
+              <p className="location"><i>{location}</i></p>
+            </div>
         
       </div>
       ))} 

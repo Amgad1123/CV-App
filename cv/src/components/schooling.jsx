@@ -6,14 +6,12 @@ export default function SchoolInfo({
   setSchoolName,
   studyName,
   setStudyName,
-  save,
   setSave,
   savedItems,
   setSavedItems,
-  eduStartDate,
   setEduStartDate,
-  eduEndDate, 
-  setEduEndDate
+  setEduEndDate,
+  setLocation
 }) {
   const [showBox, setShowBox] = useState(false);
 
@@ -22,7 +20,7 @@ export default function SchoolInfo({
   };
 
   const handleSaveClick = () => {
-    setSave(!save);
+    setSave(true);
     setSavedItems((prevItems) => [...prevItems, { schoolName, studyName }]);
     setShowBox(false);
   };
@@ -77,15 +75,19 @@ export default function SchoolInfo({
 
           <div className="input-row-dates">
             <div className="input-col">
-              <label htmlFor="startDate">Start Date:</label>
+              <label htmlFor="startDate">Start Date</label>
               <input type="date" id="startDate"  onChange={(e) => setEduStartDate(e.target.value)}/>
             </div>
             <div className="input-col">
-              <label htmlFor="endDate">End Date:</label>
+              <label htmlFor="endDate">End Date</label>
               <input type="date" id="endDate" onChange={(e) => setEduEndDate(e.target.value)}/>
             </div>
           </div>
+          <div className='input-col'>
 
+            <label htmlFor="location">Location</label>
+            <input type="text" name = 'location' className='location' placeholder='Enter location' onChange = {(e) => setLocation(e.target.value)}/>
+        </div>
           <div className="button-row">
             <button className="save" type="submit">Save</button>
             <button className="cancel" type="button" onClick={handleClick}>

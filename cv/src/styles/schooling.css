@@ -5,7 +5,7 @@
     min-height: 64vh;
     width: 27vw;
     position: relative;
-    top: 15vh;
+    top: 13vh;
     left: 2vw;
     flex-direction: column;
     background-color: white;
@@ -109,3 +109,4 @@ button:hover {
     font-size: 16px;
     font-weight: 200;
 }
+

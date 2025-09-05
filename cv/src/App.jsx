@@ -14,13 +14,22 @@ function App() {
     const [save, setSave] = useState(false);
     const [savedItems, setSavedItems] = useState([]);
     const [eduStartDate, setEduStartDate] = useState ('');
-    const [eduEndDate, setEduEndDate] = useState ('Present');
-    //const [eduDate, set]
+    const [eduEndDate, setEduEndDate] = useState ('');
+    const [location, setLocation] = useState(''); 
+    const [comanyName, setCompanyName] = useState('');
+    const [positionName, setPositionName] = useState('');
+    const [saveExperience, setSaveExperience] = useState(false);
+    const [savedExperienceItems, setSavedExperienceItems] = useState([]);
+    const [expStartDate, setExpStartDate] = useState ('');
+    const [expEndDate, setExpEndDate] = useState ('');
+    const [expLocation, setExpLocation] = useState(''); 
     return ( 
     <>
-      <div class = "leftSection">
-        <header class = "leftHeader">Resume Builder</header>
+      <div className = "leftSection">
+        <header className = "leftHeader">Resume Builder</header>
         <GeneralInfo
+        save = {save}
+        setSave = {setSave}
         name = {name}
         setName = {setName}
         email =  {email}
@@ -37,11 +46,24 @@ function App() {
         setSave = {setSave}
         savedItems = {savedItems}
         setSavedItems = {setSavedItems}
-        eduStartDate = {eduStartDate}
         setEduStartDate = {setEduStartDate}
-        eduEndDate = {eduEndDate}
         setEduEndDate = {setEduEndDate}
+        setLocation = {setLocation}
                 />
+  
+        <Experience 
+        comanyName = {comanyName}
+        setCompanyName={setCompanyName}
+        positionName = {positionName} 
+        setPositionName={setPositionName}
+        saveExperience = {saveExperience}
+        setSaveExperience = {setSaveExperience}
+        savedExperienceItems = {savedExperienceItems}
+        setSavedExperienceItems = {setSavedExperienceItems}
+        setExpStartDate = {setExpStartDate}
+        setExpEndDate = {setExpEndDate}
+        setExpLocation={setExpLocation}
+        />
       </div>
       <Display 
       name = {name}
@@ -51,6 +73,7 @@ function App() {
       savedItems = {savedItems}
       eduStartDate = {eduStartDate}
       eduEndDate = {eduEndDate}
+      location = {location}
       />
 
     </>
