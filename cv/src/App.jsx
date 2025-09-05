@@ -16,13 +16,14 @@ function App() {
     const [eduStartDate, setEduStartDate] = useState ('');
     const [eduEndDate, setEduEndDate] = useState ('');
     const [location, setLocation] = useState(''); 
-    const [comanyName, setCompanyName] = useState('');
+    const [companyName, setCompanyName] = useState('');
     const [positionName, setPositionName] = useState('');
     const [saveExperience, setSaveExperience] = useState(false);
     const [savedExperienceItems, setSavedExperienceItems] = useState([]);
     const [expStartDate, setExpStartDate] = useState ('');
     const [expEndDate, setExpEndDate] = useState ('');
     const [expLocation, setExpLocation] = useState(''); 
+    const [description, setDescription] = useState('');
     return ( 
     <>
       <div className = "leftSection">
@@ -52,7 +53,7 @@ function App() {
                 />
   
         <Experience 
-        comanyName = {comanyName}
+        companyName = {companyName}
         setCompanyName={setCompanyName}
         positionName = {positionName} 
         setPositionName={setPositionName}
@@ -63,6 +64,7 @@ function App() {
         setExpStartDate = {setExpStartDate}
         setExpEndDate = {setExpEndDate}
         setExpLocation={setExpLocation}
+        setDescription = {setDescription}
         />
       </div>
       <Display 
@@ -74,6 +76,12 @@ function App() {
       eduStartDate = {eduStartDate}
       eduEndDate = {eduEndDate}
       location = {location}
+      saveExperience = {saveExperience}
+      savedExperienceItems = {savedExperienceItems}
+      expStartDate = {expStartDate} 
+      expEndDate = {expEndDate}
+      expLocation = {expLocation}
+      description = {description}
       />
 
     </>

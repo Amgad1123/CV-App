@@ -8,16 +8,16 @@ export default function display ({
   savedItems,
   eduStartDate,
   eduEndDate,
-  location
+  location,
+  saveExperience,
+  savedExperienceItems,
+  expStartDate,
+  expEndDate,
+  expLocation,
+  description
+
 }) {
-  let formttedStartDate = '';
-  let formattedEndDate = 'Present';
-  if (eduStartDate !== '') {
-    const format = {month: 'short', day: '2-digit', year: "numeric"};
-   formttedStartDate = new Date(eduStartDate).toLocaleDateString('en-US', format)
-   formattedEndDate = new Date(eduEndDate).toLocaleDateString('en-US', format)
-  }
-  
+  const format = {month: 'short', day: '2-digit', year: "numeric"};
     return ( 
         <div class = "rightSection">
           <h1>{name}</h1>
@@ -28,6 +28,27 @@ export default function display ({
           </div>
 
         <div className="line"></div>
+        {saveExperience && (
+          <>
+            <h2 className="experiencePreview">Experience</h2>
+            <div className="headerLine"></div>
+            </>)}
+        
+        {savedExperienceItems.map((item, index) => (
+        <div key = {index} className="expCard">
+          <div className="experience-wrapper">
+            <p className="company"><strong>{item.companyName}</strong></p>
+            <p className="dates">{expStartDate !== '' ? new Date(expStartDate).toLocaleDateString('en-US', format) : ''} - { expEndDate ==! '' ? new Date(expEndDate).toLocaleDateString('en-US', format) : 'Present'}</p>
+          </div>
+            <div className="experience-wrapper2">
+              <p className="subCompany">{item.positionName}</p>
+              <p className="location"><i>{expLocation}</i></p>
+            </div>
+            <p className = "description">{description}</p>
+                       
+      </div>
+      ))} 
+     
         {save && (
           <>
             <h2 className="educationPreview">Education</h2>
@@ -38,7 +59,7 @@ export default function display ({
         <div key = {index} className="eduCard">
           <div className="education-wrapper">
             <p className="degree"><strong>{item.studyName}</strong></p>
-            <p className="dates">{formttedStartDate} - {formattedEndDate}</p>
+            <p className="dates">{eduStartDate !== '' ? new Date(eduStartDate).toLocaleDateString('en-US', format) : ''} - { eduEndDate ==! '' ? new Date(eduEndDate).toLocaleDateString('en-US', format) : 'Present'}</p>
           </div>
             <div className="education-wrapper2">
               <p className="subSchool">{item.schoolName}</p>
@@ -46,7 +67,8 @@ export default function display ({
             </div>
         
       </div>
-      ))} 
+      ))}
       </div>
-      ) 
-    }
+    )
+  }
+    

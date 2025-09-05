@@ -39,7 +39,7 @@
     flex-direction: row;
 }
 #startDate, #endDate {
-    width: 150px;
+    width: 140px;
 } 
 
 .save, .cancel {
@@ -110,3 +110,17 @@ button:hover {
     font-weight: 200;
 }
 
+#description {
+    height: 100px;
+    background-color: white;
+    width: 20vw;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.description {
+    align-self: left;
+    margin-left: 5vw;
+    margin-top: -6px;
+}

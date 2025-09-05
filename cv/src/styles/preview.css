@@ -17,7 +17,7 @@
     margin-top: -10px;
 }
 
-.educationPreview {
+.educationPreview, .experiencePreview {
     display: flex;
     align-self: left;
     margin-left: 5vw;
@@ -34,19 +34,20 @@
     padding: 0;
 } 
 
-.subSchool {
+.subSchool, .subCompany {
     margin-top: -7px;
     font-size: 16px;
 }
 
-.education-wrapper {
+.education-wrapper, .expeperience-wrapper{
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
 }  
 
-.education-wrapper, .education-wrapper2 {
+.education-wrapper, .education-wrapper2, 
+.experience-wrapper, .experience-wrapper2 {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -56,7 +57,14 @@
 
 
  
-.location {
+.location, .expLocation {
     font-size: 16px;
     margin-top: -5px;
+} 
+
+
+.description {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin-right: 5vw;
 }

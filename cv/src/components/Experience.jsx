@@ -11,7 +11,8 @@ export default function Experience({
     setSavedExperienceItems,
     setExpStartDate,
     setExpEndDate,
-    setExpLocation
+    setExpLocation,
+    setDescription
 }) {
   const [showBox, setShowBox] = useState(false);
 
@@ -84,9 +85,12 @@ export default function Experience({
             </div>
           </div>
           <div className='input-col'>
-
             <label htmlFor="location">Location</label>
             <input type="text" name = 'location' className='location' placeholder='Enter location' onChange = {(e) => setExpLocation(e.target.value)}/>
+        </div>
+        <div className="input-col">
+            <label htmlFor="description">Description</label>
+            <textarea name="Description" id="description" onChange={(e) => setDescription (e.target.value)}></textarea>
         </div>
           <div className="button-row">
             <button className="save" type="submit">Save</button>
