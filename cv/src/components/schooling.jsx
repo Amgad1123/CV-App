@@ -14,15 +14,27 @@ export default function SchoolInfo({
   setLocation
 }) {
   const [showBox, setShowBox] = useState(false);
+  const [editIndex, setEditIndex] = useState(null);
 
   const handleClick = () => {
+    setSchoolName('');
+    setStudyName('');
+    setLocation('');
     setShowBox(!showBox);
   };
 
   const handleSaveClick = () => {
     setSave(true);
-    setSavedItems((prevItems) => [...prevItems, { schoolName, studyName }]);
+    if(editIndex === null) {
+      setSavedItems((prevItems) => [...prevItems, { schoolName, studyName }]);
+    }
+    else {
+      const updatedItems = [...savedItems];
+      updatedItems[editIndex] = {schoolName, studyName};
+      setSavedItems(updatedItems);
+    }
     setShowBox(false);
+    setEditIndex(null);
   };
 
   
@@ -112,6 +124,18 @@ export default function SchoolInfo({
               }}
             >
               Delete
+            </button>
+            <button
+              className="edit"
+              onClick={() => {
+                const itemToEdit = savedItems[index];
+                setSchoolName = (itemToEdit.schoolName);
+                setStudyName = (itemToEdit.studyName);
+                setShowBox(true);
+                setEditIndex(index);
+              }}
+            >
+              Edit
             </button>
         </div>
       ))}
