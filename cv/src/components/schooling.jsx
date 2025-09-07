@@ -20,6 +20,9 @@ export default function SchoolInfo({
     setSchoolName('');
     setStudyName('');
     setLocation('');
+    setEduStartDate('');
+    setEduEndDate('');
+    setLocation('');
     setShowBox(!showBox);
   };
 

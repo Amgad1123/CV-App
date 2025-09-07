@@ -15,14 +15,28 @@ export default function Experience({
     setDescription
 }) {
   const [showBox, setShowBox] = useState(false);
+  const [expIndex, setExpIndex] = useState(null);
 
   const handleClick = () => {
+    setCompanyName('');
+    setPositionName('');
+    setExpEndDate('');
+    setExpStartDate('');
+    setExpLocation('');
+    setDescription('');
     setShowBox(!showBox);
   };
 
   const handleSaveClick = () => {
     setSaveExperience(true);
-    setSavedExperienceItems((prevItems) => [...prevItems, { companyName, positionName }]);
+    if (expIndex === null) {
+      setSavedExperienceItems((prevItems) => [...prevItems, { companyName, positionName }]);
+    }
+    else {
+      const updatedList = [...savedExperienceItems];
+      updatedList[expIndex] = {positionName, companyName};
+      setSavedExperienceItems(updatedList);
+    }
     setShowBox(false);
   };
 
@@ -116,6 +130,19 @@ export default function Experience({
               }}
             >
               Delete
+            </button>
+            <button
+              className="edit"
+              onClick={() => {
+                setShowBox(true);
+                const updatedItems = savedExperienceItems[index];
+                setCompanyName(updatedItems.companyName);
+                setPositionName(updatedItems.positionName);
+                setExpIndex(index);
+                
+              }}
+            >
+              Edit
             </button>
         </div>
       ))}
