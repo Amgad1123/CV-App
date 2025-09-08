@@ -47,9 +47,13 @@ function App() {
         setSave = {setSave}
         savedItems = {savedItems}
         setSavedItems = {setSavedItems}
+        eduStartDate = {eduStartDate}
+        eduEndDate = {eduEndDate}
         setEduStartDate = {setEduStartDate}
         setEduEndDate = {setEduEndDate}
+        location = {location}
         setLocation = {setLocation}
+
                 />
   
         <Experience 
@@ -61,9 +65,13 @@ function App() {
         setSaveExperience = {setSaveExperience}
         savedExperienceItems = {savedExperienceItems}
         setSavedExperienceItems = {setSavedExperienceItems}
+        expStartDate={expStartDate}
         setExpStartDate = {setExpStartDate}
+        expEndDate={expEndDate}
         setExpEndDate = {setExpEndDate}
+        expLocation={expLocation}
         setExpLocation={setExpLocation}
+        description={description}
         setDescription = {setDescription}
         />
       </div>
@@ -73,15 +81,8 @@ function App() {
       number = {number}
       save = {save}
       savedItems = {savedItems}
-      eduStartDate = {eduStartDate}
-      eduEndDate = {eduEndDate}
-      location = {location}
       saveExperience = {saveExperience}
       savedExperienceItems = {savedExperienceItems}
-      expStartDate = {expStartDate} 
-      expEndDate = {expEndDate}
-      expLocation = {expLocation}
-      description = {description}
       />
 
     </>

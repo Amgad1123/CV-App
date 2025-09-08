@@ -9,10 +9,14 @@ export default function Experience({
     setSaveExperience,
     savedExperienceItems,
     setSavedExperienceItems,
+    expStartDate,
     setExpStartDate,
+    expEndDate,
     setExpEndDate,
     setExpLocation,
-    setDescription
+    description,
+    setDescription,
+    expLocation
 }) {
   const [showBox, setShowBox] = useState(false);
   const [expIndex, setExpIndex] = useState(null);
@@ -30,17 +34,22 @@ export default function Experience({
   const handleSaveClick = () => {
     setSaveExperience(true);
     if (expIndex === null) {
-      setSavedExperienceItems((prevItems) => [...prevItems, { companyName, positionName }]);
+      setSavedExperienceItems((prevItems) => [...prevItems, { companyName, positionName, expStartDate, expEndDate,expLocation, description}]);
     }
     else {
       const updatedList = [...savedExperienceItems];
-      updatedList[expIndex] = {positionName, companyName};
+      updatedList[expIndex] = {positionName, companyName, expStartDate, expEndDate, expLocation, description};
       setSavedExperienceItems(updatedList);
     }
     setShowBox(false);
   };
 
-  
+  const format = {month: 'short', day: '2-digit', year: "numeric"};
+  function parseLocalDate(dateStr) {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return new Date(year, month - 1, day); 
+  }
+
   return (
     <div className="experience">
       <h1 className="heading">Experience</h1>
@@ -91,16 +100,16 @@ export default function Experience({
           <div className="input-row-dates">
             <div className="input-col">
               <label htmlFor="startDate">Start Date</label>
-              <input type="date" id="startDate"  onChange={(e) => setExpStartDate(e.target.value)}/>
+              <input type="date" id="startDate"  onChange={(e) => setExpStartDate(e.target.value !== '' ? parseLocalDate(e.target.value).toLocaleDateString('en-US', format) : '')}/>
             </div>
             <div className="input-col">
               <label htmlFor="endDate">End Date</label>
-              <input type="date" id="endDate" onChange={(e) => setExpEndDate(e.target.value)}/>
+              <input type="date" id="endDate" onChange={(e) => setExpEndDate(e.target.value !== '' ? parseLocalDate(e.target.value).toLocaleDateString('en-US', format) : 'Present')}/>
             </div>
           </div>
           <div className='input-col'>
             <label htmlFor="location">Location</label>
-            <input type="text" name = 'location' className='location' placeholder='Enter location' onChange = {(e) => setExpLocation(e.target.value)}/>
+            <input type="text" name = 'location' value = {expLocation} className='location' placeholder='Enter location' onChange = {(e) => setExpLocation(e.target.value)}/>
         </div>
         <div className="input-col">
             <label htmlFor="description">Description</label>
@@ -138,6 +147,10 @@ export default function Experience({
                 const updatedItems = savedExperienceItems[index];
                 setCompanyName(updatedItems.companyName);
                 setPositionName(updatedItems.positionName);
+                setExpStartDate(updatedItems.expStartDate);
+                setExpEndDate(updatedItems.expEndDate);
+                setExpLocation(updatedItems.expLocation);
+                setDescription(updatedItems.description);
                 setExpIndex(index);
                 
               }}

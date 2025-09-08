@@ -9,8 +9,11 @@ export default function SchoolInfo({
   setSave,
   savedItems,
   setSavedItems,
+  eduStartDate,
+  eduEndDate,
   setEduStartDate,
   setEduEndDate,
+  location,
   setLocation
 }) {
   const [showBox, setShowBox] = useState(false);
@@ -29,18 +32,23 @@ export default function SchoolInfo({
   const handleSaveClick = () => {
     setSave(true);
     if(editIndex === null) {
-      setSavedItems((prevItems) => [...prevItems, { schoolName, studyName }]);
+      setSavedItems((prevItems) => [...prevItems, { schoolName, studyName, eduStartDate, location, eduEndDate}]);
     }
     else {
       const updatedItems = [...savedItems];
-      updatedItems[editIndex] = {schoolName, studyName};
+      updatedItems[editIndex] = {schoolName, studyName, eduStartDate, eduEndDate, location};
       setSavedItems(updatedItems);
     }
     setShowBox(false);
     setEditIndex(null);
   };
 
-  
+  const format = {month: 'short', day: '2-digit', year: "numeric"};
+  function parseLocalDate(dateStr) {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    return new Date(year, month - 1, day); 
+  }
+
   return (
     <div className="education">
       <h1 className="heading">Education</h1>
@@ -91,11 +99,11 @@ export default function SchoolInfo({
           <div className="input-row-dates">
             <div className="input-col">
               <label htmlFor="startDate">Start Date</label>
-              <input type="date" id="startDate"  onChange={(e) => setEduStartDate(e.target.value)}/>
+              <input type="date" id="startDate" onChange={(e) => setEduStartDate(e.target.value !== '' ? parseLocalDate(e.target.value).toLocaleDateString('en-US', format) : '')}/>
             </div>
             <div className="input-col">
               <label htmlFor="endDate">End Date</label>
-              <input type="date" id="endDate" onChange={(e) => setEduEndDate(e.target.value)}/>
+              <input type="date" id="endDate" onChange={(e) => setEduEndDate(e.target.value !== '' ? parseLocalDate(e.target.value).toLocaleDateString('en-US', format) : 'Present')}/>
             </div>
           </div>
           <div className='input-col'>
@@ -134,6 +142,9 @@ export default function SchoolInfo({
                 const itemToEdit = savedItems[index];
                 setSchoolName = (itemToEdit.schoolName);
                 setStudyName = (itemToEdit.studyName);
+                setEduStartDate = (itemToEdit.eduStartDate);
+                setEduEndDate = (itemToEdit.eduEndDate);
+                setLocation = (itemToEdit.location);
                 setShowBox(true);
                 setEditIndex(index);
               }}
