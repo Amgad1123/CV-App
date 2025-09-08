@@ -3,7 +3,7 @@ import "../styles/general.css"
 export default function GeneralInfo({name, email, number, setName,setEmail,setNumber}) {   
      return (
         <div className="personalInfo">
-            <h1 class ="title">Personal Details</h1>
+            <h1 className ="title">Personal Details</h1>
             <form onSubmit= {(e) => {
             e.preventDefault();}}>
             
